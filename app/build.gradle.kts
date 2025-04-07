@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
+    id("de.mannodermaus.android-junit5") version "1.12.0.0"
 }
 
 android {
@@ -67,5 +68,25 @@ dependencies {
 
     implementation(libs.kluent.android)
     testImplementation(libs.kluent.android)
+
+    // junit 5
+    // JUnit 5 API and Engine
+//    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+//
+//    // For running JUnit 5 tests on Android (only required if using Robolectric)
+//    testImplementation("org.robolectric:robolectric:4.10.3")
+//
+//    // Enables JUnit 5 Platform support
+//    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.12.0")
+
+    // (Optional) If you need "Parameterized Tests"
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.12.0")
+
+    // (Optional) If you also have JUnit 4-based tests
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.12.0")
 
 }
